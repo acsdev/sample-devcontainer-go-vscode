@@ -9,6 +9,13 @@ RUN ln -s /usr/bin/python3 /usr/bin/python
 # non-root USER
 USER vscode
 
+# Install the necessary Go tools
+RUN go install golang.org/x/tools/gopls@latest
+RUN go install github.com/cweill/gotests/gotests@latest
+RUN go install github.com/josharian/impl@latest
+RUN go install github.com/go-delve/delve/cmd/dlv@latest
+RUN go install honnef.co/go/tools/cmd/staticcheck@latest
+
 # SET theme for oh-my-zsh
 # That is alraedy installed in the base image
 RUN sed -i 's/ZSH_THEME="devcontainers"/ZSH_THEME="strug"/' "/$HOME/.zshrc"
