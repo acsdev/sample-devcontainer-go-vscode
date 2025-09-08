@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  devcontainer:
+    build: .
+    container_name: dc_go
+    # command RUNS DIRECTLY WHEN docker compose up
+    # .devcontainer/docker-compose.yaml OVERRIDES it for keep the devcontainer open
+    # use it, if you want to execute something when you run `docker compose up` without work with devcontainers
+    # command: sh -c '<ANY COMMAND'
+#    volumes:
+#      - go:/home/vscode/go/:rw
+#volumes:
+  # create that volume with command 'docker volume create dot_m2' in the host machine
+#  go:
+#    external: true
